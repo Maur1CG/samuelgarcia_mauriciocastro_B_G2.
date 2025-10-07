@@ -30,6 +30,7 @@ async function loadPremios() {
         const row = `
  <tr>
     <td>${p.id_premio}</td>
+     <td>${p.id_pelicula}</td>
     <td>${p.nombre_premio}</td>
     <td>${p.categoria}</td>
     <td>${p.ano_premio}</td>
@@ -63,6 +64,7 @@ async function loadPremios() {
 form.addEventListener("submit", async e => {
     e.preventDefault();
     const data = {
+        
         nombre_premio: document.querySelector("#nombrePremio").value,
         categoria: document.querySelector("#categoriaPremio").value,
         ano_premio: document.querySelector("#anoPremio").value,
