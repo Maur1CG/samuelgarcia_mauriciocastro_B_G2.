@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+ 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestión de Categorías</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+ 
+<body>
+    
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+ 
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h4">Lista de premios</h2>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#categoryModal" id="btnAddPremios">
+                <i class="bi bi-plus-lg me-1"></i> Agregar Premios
+            </button>
+        </div>
+ 
+        <div class="table-responsive">
+            <table class="table table-hover align-middle" id="PremiosTable">
+                <thead class="table-dark">
+                    <tr>
+                        <th>id_premio</th>
+                        <th>id_pelicula</th>
+                        <th>nombre_premio</th>
+                        <th>categoria</th>
+                        <th>año_premio</th>
+                        <th>resultado</th>
+                        <th>fecha_registro</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <td colspan="7">Actualmente no hay premios registrados, intentalo mas tarde</td>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+ 
+    <!-- Modal Crear/Editar Categoría -->
+    <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="categoryModalLabel">Agregar Premios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <form id="premioForm">
+                    <div class="mb-3">
+                        <label class="form-label">id pelicula <span style="color:red">*</span></label>
+                        <input type="text" id="id_pelicula" class="form-control">
+                        <select>
+                            <option value="option1"> 1</option>
+                            <option value="option2"> 2</option>
+                            <option value="option3"> 3</option>
+                          </select>
+                        </div>
+                    <input type="hidden" id="premioId" />
+                    <div class="modal-body">
+                    <div class="mb-3">
+                    <label class="form-label">Nombre del Premio <span style="color:red">*</span></label>
+                    <input type="text" id="nombrePremio" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">Categoría <span style="color:red">*</span></label>
+                    <input type="text" id="categoriaPremio" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">Año <span style="color:red">*</span></label>
+                    <input type="number" id="anoPremio" class="form-control" min="1900" max="2100" required>
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">Resultado <span style="color:red">*</span></label>
+                    <input type="text" id="resultadoPremio" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                    <label class="form-label">Fecha de Registro <span style="color:red">*</span></label>
+                    <input type="date" id="fechaRegistro" class="form-control" required>
+                    </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                    </form>
+                     
+            </div>
+        </div>
+    </div>
+ 
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+ 
+    
+     <script type="module" src="js/controller/PremiosController.js"></script>
+     <script type="module" src="js/services/PremiosService.js"></script>
+</body>
+ 
+</html>
+ 
